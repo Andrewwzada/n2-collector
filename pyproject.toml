@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "n2-collector"
+version = "0.1.0"
+description = "Inventário Windows voluntário para suporte ACIJ"
+requires-python = ">=3.11"
+dependencies = ["PySide6>=6.8,<7"]
+
+[project.optional-dependencies]
+dev = ["pyinstaller>=6.16,<7"]
+
+[project.gui-scripts]
+coletor = "n2_collector.app:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.setuptools.package-data]
+n2_collector = ["assets/*.png"]
